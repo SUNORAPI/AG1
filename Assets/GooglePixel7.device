@@ -1,0 +1,14 @@
+{
+    "friendlyName": "Google Pixel 7",
+    "version": 1,
+    "screens": [
+        {
+            "width": 1080,
+            "height": 2400,
+            "dpi": 416.0
+        }
+    ],
+    "systemInfo": {
+        "operatingSystem": "Android"
+    }
+}
