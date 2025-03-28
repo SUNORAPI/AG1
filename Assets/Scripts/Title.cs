@@ -1,27 +1,28 @@
-using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-
 public class Title : MonoBehaviour
 {
-    [SerializeField] GameObject Circle;
-    private Vector3 circlePosition;
-    private Vector3 firstPosition;
+    [SerializeField] private GameObject circle;
+    private Vector3 _circlePosition;
+    private Vector3 _firstPosition;
+    private Transform _circleTransform;
+    private Rigidbody2D _circleRigidbody2D;
     private void Start()
     {
-        circlePosition = Circle.GetComponent<Transform>().position;
-        firstPosition = circlePosition;
+        _circleTransform = circle.GetComponent<Transform>();
+        _circleRigidbody2D = _circleTransform.GetComponent<Rigidbody2D>();
+        _circlePosition = _circleTransform.position;
+        _firstPosition = _circlePosition;
     }
 
     // Update is called once per frame
     void Update()
     {
-        circlePosition = Circle.GetComponent<Transform>().position;
-        if (circlePosition.y < -10)
+        _circlePosition = _circleTransform.position;
+        if (_circlePosition.y < -10)
         {
-            Circle.GetComponent<Transform>().position = firstPosition;
-            Circle.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
-            Circle.GetComponent<Rigidbody2D>().angularVelocity = 0f;
+            _circleTransform.position = _firstPosition;
+            _circleRigidbody2D.linearVelocity = Vector2.zero;
+            _circleRigidbody2D.angularVelocity = 0f;
         }
     }
 }
